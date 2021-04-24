@@ -2,26 +2,22 @@ import random
 
 
 def main():
-    num = random.randrange(0, 10)
+    num = random.randrange(0, 100)
     inputnum = enternum()
-    if num > inputnum:
-        print("Too small!")
-    elif num < inputnum:
-        print("Too big!")
-    else:
-        print("good")
+
     while inputnum != num:
-        newinput = int(input("Please enter a number again: "))
-        if num > newinput:
+        if num > inputnum:
             print("Too small!")
-        elif num < newinput:
+            inputnum = int(input("Please enter a number again: "))
+        elif num < inputnum:
             print("Too big!")
-        else:
-            print("good!")
-            break #make the progarm stop
+            inputnum = int(input("Please enter a number again: "))
+    print("good!")
+
 
 def enternum():
-    num1 = int(input("Please enter a number: "))
+    num1 = int(input("Please enter a number between 0 to 100: "))
+    #let user to select range in the future.
     return num1
 
 main()
